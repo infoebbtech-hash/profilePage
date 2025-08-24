@@ -1,1 +1,1 @@
-# profilePage
+Static profile page
