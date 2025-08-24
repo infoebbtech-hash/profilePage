@@ -6,7 +6,7 @@ export default function Nav() {
     <header className="bg-white/60 backdrop-blur sticky top-0 z-20 border-b">
       <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="font-semibold">
-          HerName
+          Eden Belanger
         </Link>
         <nav className="space-x-4">
           <Link to="/about">About</Link>
