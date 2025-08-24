@@ -1,0 +1,57 @@
+
+> profile-page@0.1.0 dev
+> vite
+
+✘ [ERROR] "@vitejs/plugin-react" resolved to an ESM file. ESM file cannot be loaded by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only for more details. [plugin externalize-deps]
+
+    node_modules/esbuild/lib/main.js:1225:27:
+      1225 │         let result = await callback({
+           ╵                            ^
+
+    at file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:66911:23
+    at requestCallbacks.on-resolve (/app/node_modules/esbuild/lib/main.js:1225:28)
+    at handleRequest (/app/node_modules/esbuild/lib/main.js:647:17)
+    at handleIncomingPacket (/app/node_modules/esbuild/lib/main.js:672:7)
+    at Socket.readFromStdout (/app/node_modules/esbuild/lib/main.js:600:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+  This error came from the "onResolve" callback registered here:
+
+    node_modules/esbuild/lib/main.js:1150:20:
+      1150 │       let promise = setup({
+           ╵                     ^
+
+    at setup (file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:66873:18)
+    at handlePlugins (/app/node_modules/esbuild/lib/main.js:1150:21)
+    at buildOrContextImpl (/app/node_modules/esbuild/lib/main.js:873:5)
+    at Object.buildOrContext (/app/node_modules/esbuild/lib/main.js:699:5)
+    at /app/node_modules/esbuild/lib/main.js:2023:15
+    at new Promise (<anonymous>)
+    at Object.build (/app/node_modules/esbuild/lib/main.js:2022:25)
+    at build (/app/node_modules/esbuild/lib/main.js:1873:51)
+    at bundleConfigFile (file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:66828:24)
+
+  The plugin "externalize-deps" was triggered by this import
+
+    vite.config.ts:2:18:
+      2 │ import react from "@vitejs/plugin-react";
+        ╵                   ~~~~~~~~~~~~~~~~~~~~~~
+
+failed to load config from /app/vite.config.ts
+error when starting dev server:
+Error: Build failed with 1 error:
+node_modules/esbuild/lib/main.js:1225:27: ERROR: [plugin: externalize-deps] "@vitejs/plugin-react" resolved to an ESM file. ESM file cannot be loaded by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only for more details.
+    at failureErrorWithLog (/app/node_modules/esbuild/lib/main.js:1472:15)
+    at /app/node_modules/esbuild/lib/main.js:945:25
+    at runOnEndCallbacks (/app/node_modules/esbuild/lib/main.js:1315:45)
+    at buildResponseToResult (/app/node_modules/esbuild/lib/main.js:943:7)
+    at /app/node_modules/esbuild/lib/main.js:970:16
+    at responseCallbacks.<computed> (/app/node_modules/esbuild/lib/main.js:622:9)
+    at handleIncomingPacket (/app/node_modules/esbuild/lib/main.js:677:12)
+    at Socket.readFromStdout (/app/node_modules/esbuild/lib/main.js:600:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
